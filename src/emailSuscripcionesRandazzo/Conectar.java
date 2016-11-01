@@ -38,7 +38,7 @@ public class Conectar {
 	}
       
     public void consultaTablaSuscriptores() throws Exception{      	
-    	String consultaSQL= "select Suscriptor,email from sai_chevrolet.dbo.CarteraAhorristas_2 where email != '' and email != 'NULL' ";
+    	String consultaSQL= "select Suscriptor,email from sai_chevrolet.dbo.CarteraAhorristas where email != '' and email != 'NULL' ";
       	Statement st=null;
       	ResultSet rs=null;
       	this.Abrir();
@@ -61,11 +61,13 @@ public class Conectar {
     	FileWriter archivoSuscriptores = null;//utilizo un fichero para guardar un registro de los suscriptores.
         PrintWriter pw = null; 	
     	int cantSuscriptores=0;
+    	String text;
     	archivoSuscriptores = new FileWriter("E:/emailSuscripcionRandazzo/Suscriptores.txt");
         pw = new PrintWriter(archivoSuscriptores);
         pw.println("NOMBRE Y APELLIDO" + " - " +  " EMAIL ");//archivo
         while(r.next()){       	
-    			Suscriptor sus= new Suscriptor(r.getString(1),r.getString(2));
+        		text=r.getString(1);
+        		Suscriptor sus= new Suscriptor(text.replace(" ",""),r.getString(2));
     			this.agregarSuscriptor(sus);
     			pw.println(r.getString(1) + " - " +  r.getString(2));//archivo
     			cantSuscriptores++;  		

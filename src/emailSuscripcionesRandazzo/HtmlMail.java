@@ -40,10 +40,10 @@ public class HtmlMail {
 	private String user="crm@gruporandazzo.com.ar";
 	private String password="Randazzo123";	
 	private String from="crm@gruporandazzo.com.ar";//DESDE
-	private String addressCC="";//Con Copia - CC
+	private String addressCC="crm@gruporandazzo.com.ar";//Con Copia - CC
 	private String direccionRespuesta="jcasal@randazzo.com.ar";	//Direccion de Respuesta
 	private String content,to;
-	private String subject="MENSAJE MENSUAL"; //ASUNTO DEL EMAIL
+	private String subject="Oferta Licitación - Plan de Ahorro Chevrolet"; //ASUNTO DEL EMAIL
 	
 	private String[] mes={"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};//calendario
 	/**

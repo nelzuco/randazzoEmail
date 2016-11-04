@@ -38,7 +38,7 @@ public class Conectar {
 	}
       
     public void consultaTablaSuscriptores() throws Exception{      	
-    	String consultaSQL= "select Suscriptor,email from sai_chevrolet.dbo.CarteraAhorristas where email != '' and email != 'NULL' ";
+    	String consultaSQL= "select Suscriptor,LOWER(email) from sai_chevrolet.dbo.CarteraAhorristas where email != '' and email != 'NULL' ";
       	Statement st=null;
       	ResultSet rs=null;
       	this.Abrir();
@@ -66,8 +66,8 @@ public class Conectar {
         pw = new PrintWriter(archivoSuscriptores);
         pw.println("NOMBRE Y APELLIDO" + " - " +  " EMAIL ");//archivo
         while(r.next()){       	
-        		text=r.getString(1);
-        		Suscriptor sus= new Suscriptor(text.replace(" ",""),r.getString(2));
+        		text=r.getString(2);
+        		Suscriptor sus= new Suscriptor(r.getString(1),text.replace(" ",""));
     			this.agregarSuscriptor(sus);
     			pw.println(r.getString(1) + " - " +  r.getString(2));//archivo
     			cantSuscriptores++;  		

@@ -25,8 +25,7 @@ public class main {
 		    	mail.addCID("image","E:/emailSuscripcionRandazzo/kiara_1.jpg");
 				mail.setTo(((Suscriptor)sus.get(x)).getEmail());//((Suscriptor)sus.get(x)).getEmail()
 				mail.sendMultipart();
-
-				//Thread.sleep(1000);
+				Thread.sleep(70000);//thread sleep (4000) 4 segundos
 		}			
 			System.out.println("[ Mail enviado ]");
 			} catch (Exception e) {
